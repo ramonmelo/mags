@@ -1,0 +1,4 @@
+dronekit==2.5.0
+monotonic==0.6
+pymavlink==1.1.73
+pyzmq==15.2.0
