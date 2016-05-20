@@ -2,7 +2,8 @@
 from dronekit import Vehicle, VehicleMode, LocationGlobal, LocationGlobalRelative
 import time
 
-from utils import Log
+from .utils import Log
+import zmq
 
 class Modes(object):
     auto   = 'AUTO'

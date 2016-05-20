@@ -1,8 +1,9 @@
 
+import socket
+import exceptions
 import dronekit
 from droid import Droid
-
-from utils import Log
+from .utils import Log
 
 class DroidManager():
 

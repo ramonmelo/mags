@@ -59,8 +59,9 @@ class SimManager(object):
         base_port = 5760 + (10 * idx)
         base_url = "--master=tcp:127.0.0.1:%d" % base_port
         base_source = "--source-system=%d" % (200 + idx)
+        gui = ["--map --console"]
 
-        cmd = " ".join(["mavproxy.py", base_url, "--map", "--console", base_source])
+        cmd = " ".join(["mavproxy.py", base_url, base_source])
 
         process = Popen(cmd, shell=True)
         self.process_list.append(process)
@@ -73,9 +74,9 @@ class SimManager(object):
 
         print "Create SITL Drone"
         self.create_drone(**kwargs)
-        time.sleep(3)
-        print "Create mavproxy"
-        self.create_gcs(self.id)
+        # time.sleep(3)
+        # print "Create mavproxy"
+        # self.create_gcs(self.id)
 
         self.id += 1
 
