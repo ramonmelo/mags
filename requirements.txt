@@ -2,7 +2,9 @@ dronekit==2.5.0
 dronekit-sitl==3.0.1
 MAVProxy==1.4.43
 monotonic==0.6
+numpy==1.11.0
 psutil==4.2.0
 pymavlink==1.1.73
 pyserial==3.0.1
 pyzmq==15.2.0
+Shapely==1.5.15
