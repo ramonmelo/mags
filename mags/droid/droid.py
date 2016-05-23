@@ -1,9 +1,10 @@
 
 from dronekit import Vehicle, VehicleMode, LocationGlobal, LocationGlobalRelative
 import time
+import multiprocessing
 
-from .utils import Log
-import zmq
+from mags import comm
+from mags.utils import Log
 
 class Modes(object):
     auto   = 'AUTO'
@@ -28,6 +29,34 @@ class Droid(Vehicle):
     def __init__(self, *args):
         super(Droid, self).__init__(*args)
         self._mission = None
+
+        self.id = None
+        self.data = {}
+
+        self.sub_info = comm.Subscriber('/drone/info', self.handler_info)
+        self.pub_info = comm.Publisher('/drone/info')
+
+    def run(self):
+        while True:
+            try:
+                self.think()
+            except KeyboardInterrupt:
+                break
+            finally:
+                self.end()
+
+    def think(self):
+        time.sleep(1)
+        self.pub_info.send( self.state() )
+
+    def end(self):
+        self.sub_info.end()
+
+    # HANDLERS
+
+    def handler_info(self, data):
+        # print(data)
+        pass
 
     # COMMANDS
 
