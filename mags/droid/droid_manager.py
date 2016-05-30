@@ -8,7 +8,7 @@ from .utils import Log
 class DroidManager():
 
     @staticmethod
-    def connect_drone(url, source_system = 255, baud = 115200):
+    def connect_drone(url, idx = 0, source_system = 255, baud = 115200):
         drone = None
 
         try:
@@ -19,6 +19,8 @@ class DroidManager():
                 baud               = baud,
                 source_system      = source_system,
                 vehicle_class      = Droid)
+
+            drone.id = idx
 
         # Bad TCP connection
         except socket.error:

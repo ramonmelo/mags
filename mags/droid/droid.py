@@ -55,8 +55,8 @@ class Droid(Vehicle):
     # HANDLERS
 
     def handler_info(self, data):
-        # print(data)
-        pass
+        if data['id'] is not self.id:
+            self.data[ data['id'] ] = data
 
     # COMMANDS
 
@@ -161,6 +161,7 @@ class Droid(Vehicle):
         attitude = self.attitude
 
         return {
+            'id': self.id,
             'position': {
                 'alt': pos_global.alt,
                 'alt_rel': pos_relative.alt,
