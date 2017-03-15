@@ -1,0 +1,25 @@
+
+body {
+    padding-top: 50px;
+}
+
+
+.tab-content {
+    height: 100%;
+}
+
+.tab-pane {
+    height: 100%;
+}
+
+#content {
+    left: 250px;
+    position: fixed;
+    height: 100%;
+    right: 0px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}

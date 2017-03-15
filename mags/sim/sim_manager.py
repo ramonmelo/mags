@@ -74,9 +74,9 @@ class SimManager(object):
 
         print "Create SITL Drone"
         self.create_drone(**kwargs)
-        # time.sleep(3)
-        # print "Create mavproxy"
-        # self.create_gcs(self.id)
+        time.sleep(3)
+        print "Create mavproxy"
+        self.create_gcs(self.id)
 
         self.id += 1
 

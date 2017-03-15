@@ -112,9 +112,13 @@ class Droid(Vehicle):
         if not self.in_guided():
             return False
 
-        dest_type = ""
-        dest_type = "GLOBAL" if type(destination) is LocationGlobal else dest_type
-        dest_type = "RELATIVE" if type(destination) is LocationGlobalRelative else dest_type
+        dest_type = "UNKNOW"
+
+        if type(destination) is LocationGlobal:
+            dest_type = "GLOBAL"
+
+        if type(destination) is LocationGlobalRelative:
+            dest_type = "RELATIVE"
 
         dest_text = "(%s) LAT: %f \t LON: %f \t ALT: %f" % ( dest_type, destination.lat, destination.lon, destination.alt )
 

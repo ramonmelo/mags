@@ -1,0 +1,30 @@
+extends layout
+
+block title
+    title MAGS - Massive Ground Station
+
+block style
+    link(rel='stylesheet', href='/css/index.css')
+
+block content
+
+    div#sidebar-wrapper(class='navbar-default')
+        ul.sidebar-nav
+            //- li.sidebar-brand: a(href="#") Start Bootstrap
+            li.active: a(href="#map_view" data-toggle="tab") Map View
+            li: a(href="#other" data-toggle="tab") Setup
+
+    div#content
+        div.tab-content
+            div(role="tabpanel" class="tab-pane active fade in" id="map_view")
+                include ./map_view.jade
+            div(role="tabpanel" class="tab-pane active fade" id="setup")
+                include ./setup.jade
+
+block code
+    script(type='text/javascript' src='/socket.io/socket.io.js')
+    script(type='text/javascript' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBgax2l60xNR0-qAI5yP4fVSEELrawsEn4')
+    script(type='text/javascript' src='/js/maps.js')
+    //- script(type='text/javascript' src='/js/index.js')
+
+
